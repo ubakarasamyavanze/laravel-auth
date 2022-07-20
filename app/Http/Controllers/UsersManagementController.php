@@ -31,15 +31,19 @@ class UsersManagementController extends Controller
      */
     public function index()
     {
-        $paginationEnabled = config('usersmanagement.enablePagination');
-        if ($paginationEnabled) {
-            $users = User::paginate(config('usersmanagement.paginateListSize'));
-        } else {
-            $users = User::all();
-        }
-        $roles = Role::all();
+//         $paginationEnabled = config('usersmanagement.enablePagination');
+//         if ($paginationEnabled) {
+//             $users = User::paginate(config('usersmanagement.paginateListSize'));
+//         } else {
+//             $users = User::all();
+//         }
+//         $roles = Role::all();
 
-        return View('usersmanagement.show-users', compact('users', 'roles'));
+//         return View('usersmanagement.show-users', compact('users', 'roles'));
+        
+        $orders = DB::table('orders')
+                ->selectRaw('price * ? as price_with_tax', [1.0825])
+                ->get();
     }
 
     /**
