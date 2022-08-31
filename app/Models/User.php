@@ -138,8 +138,8 @@ class User extends Authenticatable
             if ($profile->name === $name) {
                 return true;
             }
-        }
-
+       // }
+        
         return false;
     }
 
@@ -150,6 +150,7 @@ class User extends Authenticatable
      */
     public function assignProfile(Profile $profile)
     {
+        $unusedvardiablehere;
         return $this->profiles()->attach($profile);
     }
 
@@ -160,6 +161,7 @@ class User extends Authenticatable
      */
     public function removeProfile(Profile $profile)
     {
-        return $this->profiles()->detach($profile);
+        
+        //return $this->profiles()->detach($profile);
     }
 }
